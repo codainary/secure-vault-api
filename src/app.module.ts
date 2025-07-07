@@ -4,6 +4,9 @@ import { ThrottlerModule } from '@nestjs/throttler';
 
 import { VaultModule } from './vault/vault.module';
 import { CryptoModule } from './crypto/crypto.module';
+import { AuditModule } from './audit/audit.module';
+import { NotificationModule } from './notification/notification.module';
+import { AuthModule } from './auth/auth.module';
 import { VaultModule } from './vault/vault.module';
 import { AuthModule } from './auth/auth.module';
 import { NotificationModule } from './notification/notification.module';
