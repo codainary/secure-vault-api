@@ -6,7 +6,7 @@ import { PrismaClient } from '@prisma/client';
 
 @Injectable()
 export class AuthService {
-  constructor(private prisma: PrismaClient, private jwt: JwtService) {}
+  constructor(private prisma: PrismaClient, private jwt: JwtService) { }
 
   async validateUser(email: string, password: string) {
     const user = await this.prisma.user.findUnique({ where: { email } });

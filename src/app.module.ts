@@ -16,13 +16,13 @@ import { LoggerMiddleware } from './common/middlewares/logger.middleware';
 import { PrismaModule } from './prisma/prisma.module';
 import { LoggerModule } from './common/logger/logger.module';
 import configuration from './config/configuration';
-import { validationSchema } from './config/env.validation'
+import { validationSchema } from './config/env.validation';
 import { APP_GUARD } from '@nestjs/core';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ 
-      isGlobal: true, 
+    ConfigModule.forRoot({
+      isGlobal: true,
       load: [configuration],
       validationSchema,
     }),
@@ -52,12 +52,10 @@ import { APP_GUARD } from '@nestjs/core';
       provide: APP_GUARD,
       useClass: ThrottlerGuard,
     },
-  ]
+  ],
 })
 export class AppModule {
   configure(consumer: MiddlewareConsumer) {
-    consumer
-      .apply(LoggerMiddleware)
-      .forRoutes({ path: '*', method: RequestMethod.ALL });
+    consumer.apply(LoggerMiddleware).forRoutes({ path: '*', method: RequestMethod.ALL });
   }
 }
